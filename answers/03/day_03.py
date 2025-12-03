@@ -18,30 +18,64 @@ def get_biggest_combo(line):
                 biggest = int(number)
     return biggest
 
+###### warning - ugly ugly code, it worked but huge scope to tidy up if had the time
 
 def get_biggest_combo_12_digit(line):
-    # pick the -12th character - go backwards, see if anything equal or matches it
-    # find highest digit 
-    # find leftmost occurrence 
-    # if it's within 12 final digits - move on to next highest
-    # find next following digits - how to get 
-    biggest = 0
-    k = 12
-    # result = [int(''.join(c)) for c in combinations(line,k)]
-    for c in combinations(line, k):
-        num = int(''.join(c))
-        if num > biggest: biggest = num
-    return biggest
-        # for x in result:
-    #     if int(x) > biggest:
-    #         biggest = int(x)
-    # return biggest
+    # put in stack
+    # if bigger, pop until reach same, or empty. 
+    # if at end, populate with remaining items.
+    stack = []
+    max_length = 12
+    for i in range(len(line)):
+        # get the number
+        number = line[i]
+        # how much is left to the right
+        remaining_digits = len(line) - i
+
+        # if the end of the tail is reached then just add everythin on
+        if 12 - len(stack) == remaining_digits:
+            stack.append(line[i:])
+            break
+
+        # empty stack
+        if len(stack) == 0:
+            stack.append(number)
+            continue
+        
+        # insert if space
+        if number <= stack[-1]:
+            if len(stack) < 12:
+                stack.append(number)
+
+        # reorder
+        elif number > stack[-1]:
+            inserted = False
+            while not inserted:
+                stack.pop()
+
+                if len(stack) == 0:
+                    stack.append(number)
+                    inserted = True
+                    continue
+                
+                if len(stack) == 12 - remaining_digits:
+                    stack.append(line[i:])
+                    inserted = True
+                    return int("".join(stack))
+
+                if number <= stack[-1]:
+                    stack.append(number)
+                    inserted = True
+    return int("".join(stack))
+
+    
 
 with open("data/03/input.txt") as f:
     powerbanks = [x.strip("\n") for x in f.readlines()]
     total_joltage = 0
     for line in powerbanks:
-        print(f"working on line {line}")
+        # print(f"working on line {line}")
         # total_joltage += get_biggest_combo(line)
+        # print(get_biggest_combo_12_digit(line))
         total_joltage += get_biggest_combo_12_digit(line)
     print(total_joltage)
