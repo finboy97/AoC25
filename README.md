@@ -8,3 +8,6 @@
 
 #### day 3
 - Part 1 done using brute force method (itertools.combinations) - didn't work in part 2 once it had to do each possible combination of 12. Hint online suggested using stack instead, which I then implemented in an ugly way - could touch up but... eh, the problem is solved and won't be repeated.
+
+#### day 4
+- No sticking points today. Just a robotic typing of each grid location in relation to a coordinate and checking if it is a paper stack or not. Part 2 was able to reuse this.
