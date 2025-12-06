@@ -15,3 +15,7 @@
 #### day 5
 - part 1 simple
 - part 2 - spent a while thinking about linkedlist or tree to order ranges properly. Then saw a much better idea I hadn't thought of - sorting the list of ranges by range start after listing them all. After that logic is mine. Poor show.
+
+#### day 6
+- part 1 - fairly simple
+- part 2 - once I decided to just flip the columnar numbers into their own list entry, then it was quite easy. Most happy that I didn't get any outside influence on my answer.
