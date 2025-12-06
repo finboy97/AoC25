@@ -47,20 +47,6 @@ def calculate(grid):
     return total
 
 
-def convert_normal_digits_into_octopod_digits(digits):
-    total_numbers = max([len(x) for x in digits])
-    new_digits = []
-    for i in range(1, total_numbers+1):
-        new_digit = ""
-        for row in digits:
-            try: 
-                new_digit = new_digit + row[-i]
-            except IndexError:
-                continue
-        new_digits.append(new_digit)
-    return [int(x) for x in new_digits]
-                
-
 with open("data/06/test.txt") as f:
     items = []
     for line in f.readlines():
