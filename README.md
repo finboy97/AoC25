@@ -11,3 +11,7 @@
 
 #### day 4
 - No sticking points today. Just a robotic typing of each grid location in relation to a coordinate and checking if it is a paper stack or not. Part 2 was able to reuse this.
+
+#### day 5
+- part 1 simple
+- part 2 - spent a while thinking about linkedlist or tree to order ranges properly. Then saw a much better idea I hadn't thought of - sorting the list of ranges by range start after listing them all. After that logic is mine. Poor show.
