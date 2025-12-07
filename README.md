@@ -19,3 +19,7 @@
 #### day 6
 - part 1 - fairly simple
 - part 2 - once I decided to just flip the columnar numbers into their own list entry, then it was quite easy. Most happy that I didn't get any outside influence on my answer.
+
+#### day 7
+- part 1 - Run through the rows and add | to next row if possible. 
+- part 2 - INCOMPLETE - working on using stack to explore routes down path but ran out of time
